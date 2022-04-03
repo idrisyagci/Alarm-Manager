@@ -31,8 +31,9 @@ public class MainActivity extends Activity {
         startAlarmBtn = findViewById(R.id.startAlarmBtn);
 
         startAlarmBtn.setOnClickListener(v -> {
-            PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
                 if (pm != null && !pm.isIgnoringBatteryOptimizations(getPackageName())) {
                     askIgnoreOptimization();
                 } else {
